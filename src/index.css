@@ -9,7 +9,40 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.app {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid darkred;
+}
+
+.app__title {
+    margin: 0 0 20px;
+    color: darkred;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.todo-list {
+    width: fit-content;
+    margin: 0 0 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.todo-item {
+    margin-bottom: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.todo-item:last-child {
+    margin-bottom: 0;
+}
+
 .todo-item__name {
+    margin-right: auto;
     font-weight: bold;
     cursor: pointer;
 }
@@ -18,4 +51,8 @@ body {
     color: darkgreen;
     font-weight: normal;
     text-decoration: line-through;
+}
+
+.todo-item__button {
+    margin-left: 10px;
 }
