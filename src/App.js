@@ -11,7 +11,7 @@ class TodoApp extends React.Component {
                 <h1 className="app__title">{appTitle}</h1>
                 {todoList.loaded ?
                     <ul className="todo-list">
-                        {todoList.todos.map(todo => <TodoItem todo={todo}/>)}
+                        {todoList.todos.map(todo => <TodoItem todo={todo} key={todo.id} onRemove={this.removeTodo}/>)}
                     </ul>
                 :
                     <p className="app__loading">Загрузка...</p>
@@ -19,6 +19,12 @@ class TodoApp extends React.Component {
             </div>
         );
     }
+
+    removeTodo = (todo) => {
+        const {todoList} = this.props;
+
+        todoList.remove(todo);
+    };
 }
 
 export default observer(TodoApp);

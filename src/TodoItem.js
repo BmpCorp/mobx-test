@@ -7,11 +7,36 @@ class TodoItem extends React.Component {
 
         return (
             <li className="todo-item">
-                <span className={'todo-item__name' + todo.completed ? ' todo-item__name--completed' : ''}>
+                <span
+                    className={'todo-item__name' + (todo.completed ? ' todo-item__name--completed' : '')}
+                    onClick={this.complete}
+                >
                     {todo.name}
                 </span>
+                <button className='todo-item__button' onClick={this.rename}>Переименовать</button>
+                <button className='todo-item__button' onClick={this.remove}>Удалить</button>
             </li>
         );
+    }
+
+    complete = () => {
+        const {todo} = this.props;
+
+        todo.completed = !todo.completed;
+    };
+
+    rename = () => {
+        const {todo} = this.props;
+
+        todo.name = prompt('Введите новое имя задачи:', todo.name) || todo.name;
+    };
+
+    remove = () => {
+        const {todo, onRemove} = this.props;
+
+        if (onRemove) {
+            onRemove(todo);
+        }
     }
 }
 

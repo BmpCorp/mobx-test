@@ -5,6 +5,8 @@ class TodoList {
     todos = [];
     loaded = false;
 
+    lastId = 0;
+
     get completedTodos() {
         return this.todos.filter(todo => todo.completed);
     }
@@ -15,6 +17,7 @@ class TodoList {
 
     add(name, completed = false) {
         this.todos.push({
+            id: this.lastId++,
             name,
             completed
         });
