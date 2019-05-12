@@ -16,6 +16,9 @@ class TodoApp extends React.Component {
                             {todoList.todos.map(todo => <TodoItem todo={todo} key={todo.id} onRemove={this.removeTodo}/>)}
                         </ul>
                         <button className="todo-list__add-button" onClick={this.addTodo}>{strings.BUTTON_ADD}</button>
+                        <div className="todo-list__counter">
+                            {strings.TODOS_COMPLETED + todoList.completedTodos.length + '/' + todoList.todos.length}
+                        </div>
                     </div>
                 :
                     <p className="app__loading">{strings.LOADING}</p>

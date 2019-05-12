@@ -10,6 +10,8 @@ const strings = {
 
     PROMPT_ADD: 'Введите имя новой задачи:',
     PROMPT_RENAME: 'Введите новое имя задачи:',
+
+    TODOS_COMPLETED: 'Задач выполнено: ',
 };
 
 export default strings;

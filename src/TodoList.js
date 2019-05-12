@@ -13,10 +13,6 @@ class TodoList {
         return this.todos.filter(todo => todo.completed);
     }
 
-    get incompletedTodos() {
-        return this.todos.filter(todo => !todo.completed);
-    }
-
     add(name, completed = false) {
         this.todos.push({
             id: this.lastId++,
@@ -50,7 +46,6 @@ decorate(TodoList, {
     todos: observable,
     loaded: observable,
     completedTodos: computed,
-    incompletedTodos: computed,
 });
 
 export default TodoList;
