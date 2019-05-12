@@ -1,6 +1,8 @@
 import {decorate, observable, computed} from 'mobx';
 import superagent from 'superagent';
 
+import strings from './Strings';
+
 class TodoList {
     todos = [];
     loaded = false;
@@ -38,7 +40,7 @@ class TodoList {
 
             this.loaded = true;
         } catch (error) {
-            console.log('Не удаётся загрузить список из файла!');
+            console.log(strings.LOADING_FAILED + url);
             console.log(error);
         }
     }

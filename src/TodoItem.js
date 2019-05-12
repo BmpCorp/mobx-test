@@ -1,5 +1,6 @@
 import React from 'react';
 import {observer} from 'mobx-react';
+import strings from './Strings';
 
 class TodoItem extends React.Component {
     render() {
@@ -13,8 +14,8 @@ class TodoItem extends React.Component {
                 >
                     {todo.name}
                 </span>
-                <button className='todo-item__button' onClick={this.rename}>Переименовать</button>
-                <button className='todo-item__button' onClick={this.remove}>Удалить</button>
+                <button className='todo-item__button' onClick={this.rename}>{strings.BUTTON_RENAME}</button>
+                <button className='todo-item__button' onClick={this.remove}>{strings.BUTTON_DELETE}</button>
             </li>
         );
     }
@@ -28,7 +29,7 @@ class TodoItem extends React.Component {
     rename = () => {
         const {todo} = this.props;
 
-        todo.name = prompt('Введите новое имя задачи:', todo.name) || todo.name;
+        todo.name = prompt(strings.PROMPT_RENAME, todo.name) || todo.name;
     };
 
     remove = () => {
