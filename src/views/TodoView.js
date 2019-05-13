@@ -1,10 +1,11 @@
 import React from 'react';
 import {observer} from 'mobx-react';
-import TodoItem from './TodoItem';
-import strings from './Strings';
+import TodoItem from '../components/TodoItem';
+import Navigation from '../partials/Navigation';
+import strings from '../Strings';
 
 @observer
-class TodoApp extends React.Component {
+class TodoView extends React.Component {
     addTodo = () => {
         const {todoList} = this.props;
 
@@ -21,11 +22,12 @@ class TodoApp extends React.Component {
     };
 
     render() {
-        const {appTitle, todoList} = this.props;
+        const {todoList} = this.props;
 
         return (
             <div className="app">
-                <h1 className="app__title">{appTitle}</h1>
+                <Navigation />
+                <h1 className="app__title">{strings.HEADING_TODO}</h1>
                 {todoList.loaded ?
                     <div>
                         <ul className="todo-list">
@@ -44,4 +46,4 @@ class TodoApp extends React.Component {
     }
 }
 
-export default TodoApp;
+export default TodoView;

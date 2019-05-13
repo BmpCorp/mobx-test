@@ -1,6 +1,6 @@
 import React from 'react';
 import {observer} from 'mobx-react';
-import strings from './Strings';
+import strings from '../Strings';
 
 @observer
 class TodoItem extends React.Component {

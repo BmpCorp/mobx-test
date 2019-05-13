@@ -1,7 +1,7 @@
 import {observable, computed} from 'mobx';
 import superagent from 'superagent';
 
-import strings from './Strings';
+import strings from '../Strings';
 
 class TodoList {
     @observable todos = [];
