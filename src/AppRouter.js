@@ -13,7 +13,7 @@ class AppRouter extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <div>
+                <div className="app">
                     <Route path="/" exact render={props => <IndexView />} />
                     <Route path="/todo/" render={props => <TodoView todoList={todoList} />} />
                 </div>

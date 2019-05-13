@@ -25,7 +25,7 @@ class TodoView extends React.Component {
         const {todoList} = this.props;
 
         return (
-            <div className="app">
+            <div>
                 <Navigation />
                 <h1 className="app__title">{strings.HEADING_TODO}</h1>
                 {todoList.loaded ?

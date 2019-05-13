@@ -7,7 +7,7 @@ import strings from '../Strings';
 class IndexView extends React.Component {
     render() {
         return (
-            <div className="app">
+            <div>
                 <Navigation />
                 <h1 className="app__title">{strings.HEADING_FRONTPAGE}</h1>
                 <p>{strings.FRONTPAGE_DESCRIPTION}</p>
