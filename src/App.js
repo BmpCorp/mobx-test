@@ -3,7 +3,23 @@ import {observer} from 'mobx-react';
 import TodoItem from './TodoItem';
 import strings from './Strings';
 
+@observer
 class TodoApp extends React.Component {
+    addTodo = () => {
+        const {todoList} = this.props;
+
+        const name = prompt(strings.PROMPT_ADD, 'Новая задача');
+        if (name) {
+            todoList.add(name);
+        }
+    };
+
+    removeTodo = (todo) => {
+        const {todoList} = this.props;
+
+        todoList.remove(todo);
+    };
+
     render() {
         const {appTitle, todoList} = this.props;
 
@@ -26,21 +42,6 @@ class TodoApp extends React.Component {
             </div>
         );
     }
-
-    addTodo = () => {
-        const {todoList} = this.props;
-
-        const name = prompt(strings.PROMPT_ADD, 'Новая задача');
-        if (name) {
-            todoList.add(name);
-        }
-    };
-
-    removeTodo = (todo) => {
-        const {todoList} = this.props;
-
-        todoList.remove(todo);
-    };
 }
 
-export default observer(TodoApp);
+export default TodoApp;

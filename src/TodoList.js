@@ -4,12 +4,12 @@ import superagent from 'superagent';
 import strings from './Strings';
 
 class TodoList {
-    todos = [];
-    loaded = false;
+    @observable todos = [];
+    @observable loaded = false;
 
     lastId = 0;
 
-    get completedTodos() {
+    @computed get completedTodos() {
         return this.todos.filter(todo => todo.completed);
     }
 
@@ -41,11 +41,5 @@ class TodoList {
         }
     }
 }
-
-decorate(TodoList, {
-    todos: observable,
-    loaded: observable,
-    completedTodos: computed,
-});
 
 export default TodoList;
