@@ -1,4 +1,4 @@
-import {decorate, observable, computed} from 'mobx';
+import {observable, computed} from 'mobx';
 import superagent from 'superagent';
 
 import strings from './Strings';
