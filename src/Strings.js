@@ -4,6 +4,7 @@ const strings = {
 
     LOADING: 'Загрузка...',
     LOADING_FAILED: 'Не удаётся загрузить список из файла ',
+    QUERY_FAILED: 'Ошибка при выполнении запроса',
 
     BUTTON_ADD: 'Добавить',
     BUTTON_RENAME: 'Переименовать',

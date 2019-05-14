@@ -6,10 +6,9 @@ import TodoView from './views/TodoView';
 
 import TodoList from "./components/TodoList";
 
-const apiUrl = 'http://localhost:8000/api/todo/';// './todos.json';
-
 const todoList = new TodoList();
-todoList.loadFrom(apiUrl);
+//todoList.loadFrom('./todos.json');
+todoList.load();
 
 class App extends React.Component {
     state = {

@@ -1,19 +1,31 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import strings from '../Strings';
+import API from "../API";
 
 @observer
 class TodoItem extends React.Component {
-    complete = () => {
-        const {todo} = this.props;
+    complete = async () => {
+        const {todo, onStartLoad, onStopLoad} = this.props;
 
-        todo.completed = !todo.completed;
+        onStartLoad();
+        if (await API.completeTodo(todo.id, !todo.completed)) {
+            todo.completed = !todo.completed;
+        }
+        onStopLoad();
     };
 
-    rename = () => {
-        const {todo} = this.props;
+    rename = async () => {
+        const {todo, onStartLoad, onStopLoad} = this.props;
 
-        todo.name = prompt(strings.PROMPT_RENAME, todo.name) || todo.name;
+        const pendingName = prompt(strings.PROMPT_RENAME, todo.name);
+        if (pendingName && pendingName !== todo.name) {
+            onStartLoad();
+            if (await API.renameTodo(todo.id, pendingName)) {
+                todo.name = pendingName;
+            }
+            onStopLoad();
+        }
     };
 
     remove = () => {

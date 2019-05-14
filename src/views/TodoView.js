@@ -3,22 +3,32 @@ import {observer} from 'mobx-react';
 import TodoItem from '../components/TodoItem';
 import Navigation from '../partials/Navigation';
 import strings from '../Strings';
+import API from "../API";
 
 @observer
 class TodoView extends React.Component {
-    addTodo = () => {
-        const {todoList} = this.props;
+    addTodo = async () => {
+        const {todoList, onStartLoad, onStopLoad} = this.props;
 
         const name = prompt(strings.PROMPT_ADD, 'Новая задача');
         if (name) {
-            todoList.add(name);
+            onStartLoad();
+            const id = await API.addTodo(name);
+            if (id !== -1) {
+                todoList.add(id, name);
+            }
+            onStopLoad();
         }
     };
 
-    removeTodo = (todo) => {
-        const {todoList} = this.props;
+    removeTodo = async (todo) => {
+        const {todoList, onStartLoad, onStopLoad} = this.props;
 
-        todoList.remove(todo);
+        onStartLoad();
+        if (await API.removeTodo(todo.id)) {
+            todoList.remove(todo);
+        }
+        onStopLoad();
     };
 
     render() {

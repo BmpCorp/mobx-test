@@ -17,7 +17,7 @@ body {
 
 .app--loading {
     pointer-events: none;
-    cursor: progress;
+    opacity: 0.5;
 }
 
 .app__title {
