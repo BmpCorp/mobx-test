@@ -28,7 +28,7 @@ class TodoList {
     async loadFrom(url) {
         try {
             const response = await superagent.get(url);
-            const list = response.body;
+            const list = response.body.todos;
 
             list.forEach((todo) => {
                 this.add(todo.name, todo.completed);

@@ -22,7 +22,7 @@ class TodoView extends React.Component {
     };
 
     render() {
-        const {todoList} = this.props;
+        const {todoList, onStartLoad, onStopLoad} = this.props;
 
         return (
             <div>
@@ -31,7 +31,13 @@ class TodoView extends React.Component {
                 {todoList.loaded ?
                     <div>
                         <ul className="todo-list">
-                            {todoList.todos.map(todo => <TodoItem todo={todo} key={todo.id} onRemove={this.removeTodo}/>)}
+                            {todoList.todos.map(todo => <TodoItem
+                                todo={todo}
+                                key={todo.id}
+                                onRemove={this.removeTodo}
+                                onStartLoad={onStartLoad}
+                                onStopLoad={onStopLoad}
+                            />)}
                         </ul>
                         <button className="todo-list__add-button" onClick={this.addTodo}>{strings.BUTTON_ADD}</button>
                         <div className="todo-list__counter">

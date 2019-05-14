@@ -15,6 +15,11 @@ body {
     border: 1px solid darkred;
 }
 
+.app--loading {
+    pointer-events: none;
+    cursor: progress;
+}
+
 .app__title {
     margin: 0 0 20px;
     color: darkred;
